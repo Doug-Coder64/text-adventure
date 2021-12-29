@@ -13,6 +13,7 @@ int main() {
     bool cont = false;
     char answer = '-';
     int orcHealth = 67;
+    int nokesHealth = 80;
     int playerHealth = 100;
 
     std::cout << "\n*======================*\n";
@@ -162,6 +163,74 @@ int main() {
     std::cin.clear();
     std::cin.ignore(100, '\n');
 
+    std::cout << "\nOnce you get to the house, you sneak in\n"
+              << "to avoid causing any suspicion.\n";
+
+    std::cout << "\nShinebright leads you to where the wand is located.\n"
+              << "He reminds you that with this wand he can turn back into his elvin form\n";
+
+    std::cout << "\nYou head up a spiral staircase towards the wizard quarters\n"
+              << "where you discover Noke is asleep, wand in hand.\n";
+
+    std::cout << "\nYou have a choice, make it wisely.\n";
+    std::cout << "A) Try to pull from his hand?\nB) Wake him\nC) Run Away!\n\n";
+
+    std::cin >> answer;
+
+    //conditional for attempting to take the wand. if random number is greater or equal to 10 then you take it successfully.
+    // if not taken successfully it changes answer to b which is the fight sequence.
+    if(answer == 'a' || answer == 'A'){
+        std::cout << "You attempt to sneakily take the wand";
+        if(std::rand() % 20 >= 10){
+            std::cout << ", and were able to take the wand without waking him!\n";
+            cont = true;
+        } else {
+            std::cout << ", but have waken up Noke!\n";
+            answer = 'b';
+        }
+    }
+
+    //fight conditional. 
+    if(answer == 'b' || answer == 'B'){
+
+        //while loop to verify orc is allive before fighting happens
+        while(nokesHealth >= 0) {
+            if(playerHealth >= 0){
+                int nokesAttack = std::rand() % 12 + 1;
+                int playerAttack = std::rand() % 14 + 1;
+                nokesHealth -= playerAttack;
+                std::cout << "You swing at Noke and inflict " << playerAttack << " damage\n";
+                if(nokesAttack >= 0){
+                    playerHealth -= nokesAttack;
+                    std::cout << "Noke uses his wand of lightning and inflicts " << nokesAttack << " damage\n";
+                }
+            } else {
+                std::cout << "You are paralyzed by Nokes lighting and he turns you into a sheep similar to Shinebright!\n";
+                break;
+            }
+        }
+        if(nokesHealth <= 0){
+            cont = true;
+            std::cout << "\nNoke faints and you take the wand!\n";
+        }
+    }
+
+    if(answer == 'c' || answer == 'C'){
+        std::cout << "You leave Shinebright to attempt to deal with Noke on his own\n";
+
+    }
+
+    if (!cont) {
+        std::cout << "\n Game Over! \n";
+        return 0;
+    }
+    answer = '-';
+    cont = false;
+    playerHealth = 100;
+
+    std::cout << "\nWith the wand you turn Noke back into his elvin form.\n"
+              << "He rewardss you with the magic gear from Nokes collection\n";
+    std::cout << "\n Game Over! \n";
 
 
 }
