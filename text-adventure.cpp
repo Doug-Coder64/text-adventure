@@ -27,6 +27,9 @@ int main() {
 
     std::cout << "\n(Hit Enter Continue...)";
     std::cin.get();
+    std::cin.clear();
+    std::cin.ignore(100, '\n');
+
     
     std::cout << "\nThe sheep tries to get close to you and waves the scroll at you,\n"
               << "letting you take it should you reach for it.\n\n";
@@ -61,6 +64,8 @@ int main() {
 
     std::cout << "\n(Hit Enter Continue...)";
     std::cin.get();
+    std::cin.clear();
+    std::cin.ignore(100, '\n');
 
     std::cout << "A huge Half-Orc swaggers towards you, \n"
               << "pushing through the crowd without a care for angry yells left in his wake.\n";
@@ -118,7 +123,7 @@ int main() {
         }
         if(orcHealth <= 0){
             cont = true;
-            std::cout << "\n Guz faints and you escape with the sheep\n";
+            std::cout << "\nGuz faints and you escape with the sheep!\n";
         }
     }
 
@@ -129,7 +134,35 @@ int main() {
     }
     answer = '-';
     cont = false;
+    playerHealth = 100;
+
+    std::cout << "\n(Hit Enter Continue...)\n";
+    std::cin.get();
+    std::cin.clear();
+    std::cin.ignore(100, '\n');
+
+
+    std::cout << "\n\"Without Guz's help, Noke is doomed!\" Exclaims the talking sheep!\n";
+    std::cout << "The sheep explains that his former apprentice, Noke, \n"
+              << "still dwells in his old home, located just to the southeast of town.\n";
+
+    std::cout << "\n(Hit Enter Continue...)\n";
+    std::cin.get();
+    std::cin.clear();
+    std::cin.ignore(100, '\n');
+
+    std::cout << "\n You Head towrds the house's location\n\n";
+    std::cout << "When you aproach the house, you notice that\n" 
+              << "Rather than stone or glass, Shinebright \n" 
+              << "fashioned his home from the living branches\n" 
+              << "of four sturdy oak trees. \n";
+
+    std::cout << "\n(Hit Enter Continue...)\n";
+    std::cin.get();
+    std::cin.clear();
+    std::cin.ignore(100, '\n');
 
 
 
 }
+
